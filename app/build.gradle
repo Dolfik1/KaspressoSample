@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.ManagedVirtualDevice
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -13,7 +15,22 @@ android {
         versionCode 1
         versionName "1.0"
 
+        multiDexEnabled = true
+
         testInstrumentationRunner "com.kaspersky.kaspresso.runner.KaspressoRunner"
+    }
+
+    testOptions {
+        managedDevices {
+            devices {
+                pixel4api33 (ManagedVirtualDevice) {
+                    device = "Pixel 4"
+                    apiLevel = 33
+                    systemImageSource = "google-atd"
+                    require64Bit = true
+                }
+            }
+        }
     }
 
     buildTypes {
