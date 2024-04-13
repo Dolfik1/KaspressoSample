@@ -1,0 +1,1 @@
+ gradle --no-daemon --debug :app:pixel4api33DebugAndroidTest -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true

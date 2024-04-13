@@ -12,7 +12,7 @@
 
   outputs = { self, nixpkgs, flake-utils, android }:
     let
-      buildToolsVersion = "33.0.0";
+      buildToolsVersion = "30.0.3";
       cmakeVersion = "3.18.1";
     in
     with flake-utils.lib; eachSystem [ system.x86_64-linux system.x86_64-darwin system.aarch64-linux system.aarch64-darwin ] (system:
@@ -27,7 +27,7 @@
           overlays = [
             (self: super: {
               androidsdk = android.sdk.${system} (sdkPkgs: with sdkPkgs; [
-                build-tools-33-0-0
+                build-tools-30-0-3
                 cmdline-tools-latest
                 emulator
                 platform-tools
